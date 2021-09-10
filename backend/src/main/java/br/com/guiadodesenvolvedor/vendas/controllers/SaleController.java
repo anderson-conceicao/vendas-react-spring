@@ -1,5 +1,7 @@
 package br.com.guiadodesenvolvedor.vendas.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.guiadodesenvolvedor.vendas.dto.SaleDTO;
+import br.com.guiadodesenvolvedor.vendas.dto.SaleSuccessDTO;
+import br.com.guiadodesenvolvedor.vendas.dto.SaleSumDTO;
 import br.com.guiadodesenvolvedor.vendas.sevices.SaleService;
 
 @RestController
@@ -25,4 +29,18 @@ public class SaleController {
 
 	}
 
+	@GetMapping(value="/amount-by-seller")
+	public ResponseEntity<List<SaleSumDTO>> amoutGroupedBySeller() {
+		List<SaleSumDTO> list = service.amoutGroupedBySeller();
+		return ResponseEntity.ok(list);
+
+	}
+	
+	
+	@GetMapping(value="/success-by-seller")
+	public ResponseEntity<List<SaleSuccessDTO>> successGroupedBySeller() {
+		List<SaleSuccessDTO> list = service.successGroupedBySeller();
+		return ResponseEntity.ok(list);
+
+	}
 }
