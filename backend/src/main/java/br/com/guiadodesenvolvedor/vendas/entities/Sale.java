@@ -1,4 +1,4 @@
-package br.com.guiadodesenvolvedor.vendas.entites;
+package br.com.guiadodesenvolvedor.vendas.entities;
 
 import java.time.LocalDate;
 
